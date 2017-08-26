@@ -33,7 +33,8 @@ set-env PROJ4_LIBRARY_PATH "$APP_VENDOR/lib"
 set-env GDAL_DATA "$APP_VENDOR/share/gdal"
 
 # Copy libjasper since it's only available in heroku buildenv
-cp /usr/lib/x86_64-linux-gnu/libjasper.so* "$APP_VENDOR/lib"
+mkdir -p "$BUILD_DIR/$TARGET_VENDOR_DIR/lib"
+cp /usr/lib/x86_64-linux-gnu/libjasper.so* "$BUILD_DIR/$TARGET_VENDOR_DIR/lib/."
 
 set-default-env CPATH "$APP_VENDOR/include"
 set-default-env PATH "$APP_VENDOR/bin"
